@@ -1,0 +1,66 @@
+<SettingsScreen>:
+    name: "settings"
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+
+        MDTopAppBar:
+            title: "Settings"
+            elevation: 0
+            left_action_items: [["menu", lambda x: app.root.ids.nav_drawer.set_state("open")]]
+
+        ScrollView:
+            MDList:
+                TwoLineListItem:
+                    text: "App Version"
+                    secondary_text: "1.0.0"
+                TwoLineListItem:
+                    text: "Package"
+                    secondary_text: "org.swr.cleaner"
+
+                MDBoxLayout:
+                    padding: "16dp", "8dp"
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Anonymous Crash Reports"
+                        font_style: "Body1"
+                    MDSwitch:
+                        id: crash_reports_switch
+                        active: False
+
+                MDBoxLayout:
+                    padding: "16dp", "8dp"
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Storage Trend Logging"
+                        font_style: "Body1"
+                    MDSwitch:
+                        id: trend_switch
+                        active: True
+
+                MDBoxLayout:
+                    padding: "16dp", "8dp"
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Dark Theme"
+                        font_style: "Body1"
+                    MDSwitch:
+                        id: theme_switch
+                        active: True
+                        on_active: app.toggle_theme(self.active)
+
+                TwoLineListItem:
+                    text: "Privacy Policy"
+                    secondary_text: "No personal data collected or transmitted"
+
+                TwoLineListItem:
+                    text: "Clear App Data"
+                    secondary_text: "Delete local scan history & metrics"
+                    on_release: root.confirm_clear_data()
+
+                TwoLineListItem:
+                    text: "About SWR"
+                    secondary_text: "Professional Android Cleaner — Zerve Build"

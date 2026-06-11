@@ -1,0 +1,55 @@
+#:import MDTopAppBar kivymd.uix.toolbar.MDTopAppBar
+#:import MDBottomNavigation kivymd.uix.bottomnavigation.MDBottomNavigation
+#:import MDBottomNavigationItem kivymd.uix.bottomnavigation.MDBottomNavigationItem
+
+<SWRRoot>:
+    MDNavigationLayout:
+        MDScreenManager:
+            id: screen_manager
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: 0, 16, 16, 0
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerHeader:
+                    title: "SWR Cleaner"
+                    title_color: app.theme_cls.primary_color
+                    text: "v1.0.0"
+                    source: "assets/logo.png"
+                MDNavigationDrawerDivider:
+                MDNavigationDrawerItem:
+                    icon: "view-dashboard-outline"
+                    text: "Dashboard"
+                    on_release:
+                        app.root.ids.screen_manager.current = "dashboard"
+                        root.ids.nav_drawer.set_state("close")
+                MDNavigationDrawerItem:
+                    icon: "broom"
+                    text: "Storage Cleaner"
+                    on_release:
+                        app.root.ids.screen_manager.current = "storage"
+                        root.ids.nav_drawer.set_state("close")
+                MDNavigationDrawerItem:
+                    icon: "apps"
+                    text: "App Manager"
+                    on_release:
+                        app.root.ids.screen_manager.current = "apps"
+                        root.ids.nav_drawer.set_state("close")
+                MDNavigationDrawerItem:
+                    icon: "battery-charging"
+                    text: "Battery Monitor"
+                    on_release:
+                        app.root.ids.screen_manager.current = "battery"
+                        root.ids.nav_drawer.set_state("close")
+                MDNavigationDrawerItem:
+                    icon: "shield-check-outline"
+                    text: "Permissions"
+                    on_release:
+                        app.root.ids.screen_manager.current = "permissions"
+                        root.ids.nav_drawer.set_state("close")
+                MDNavigationDrawerDivider:
+                MDNavigationDrawerItem:
+                    icon: "cog-outline"
+                    text: "Settings"
+                    on_release:
+                        app.root.ids.screen_manager.current = "settings"
+                        root.ids.nav_drawer.set_state("close")

@@ -1,0 +1,6 @@
+kivy==2.3.0
+kivymd==1.2.0
+Pillow>=10.0.0
+plyer>=2.1.0
+psutil>=5.9.0
+buildozer>=1.5.0
